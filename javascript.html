@@ -14,23 +14,25 @@
 4) Задать пользователю 3 раза вопрос "Какой тип товаров будем продавать?" и записать ответы в массив shopGoods
 5) Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней)
 6) Проверить на наличие ошибок
-7) Создать свой репозиторий на GitHub и поместить туда папку с первым заданием
+7) Создать свой репозиторий на GitHub и поместить туда папку с первым заданием*/
 
-var money = +prompt("Ваш бюджет?", '30000');
-var nameShop = prompt("Название вашего магазина?", 'Verblyadi');
+function l1N1() {
+	var money = +prompt("Ваш бюджет?", '30000');
+	var nameShop = prompt("Название вашего магазина?", 'Verblyadi');
 
-var mainList = {
-	budget: money,
-	nameStore: nameShop,
-	shopGoods: [],
-	employers: {}
+	var mainList = {
+		budget: money,
+		nameStore: nameShop,
+		shopGoods: [],
+		employers: {}
+	}
+
+	mainList.shopGoods.push(prompt("Какой тип товаров будем продавать?", "prr1"));
+	mainList.shopGoods.push(prompt("Какой тип товаров будем продавать?", "brr2"));
+	mainList.shopGoods.push(prompt("Какой тип товаров будем продавать?", "urr3"));
+
+	document.write("Ваш бюджет на 1 день: " + mainList.budget / 30 + " рублей");
 }
-
-mainList.shopGoods.push(prompt("Какой тип товаров будем продавать?", "prr1"));
-mainList.shopGoods.push(prompt("Какой тип товаров будем продавать?", "brr2"));
-mainList.shopGoods.push(prompt("Какой тип товаров будем продавать?", "urr3"));
-
-document.write("Ваш бюджет на 1 день: " + mainList.budget / 30 + " рублей"); */
 
 
 

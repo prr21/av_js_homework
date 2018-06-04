@@ -1,4 +1,5 @@
 <script>
+
 /*УСЛОЖНЕННОЕ ЗАДАНИЕ (НЕОБЯЗАТЕЛЬНОЕ):
 Необходимо выполнить в отдельном JS файле, подключенному к отдельной HTML странице
 1) Создать переменную num со значением 33721
@@ -6,14 +7,60 @@
 2) Полученный результат возвести в степень 3, используя только 1 оператор
 ·        Вывести его на экран
 3) Создать свой репозиторий на GitHub и поместить туда папку с усложненным заданием*/
-	
-	var num = 33721;
-	var result;
 
-	result = Math.pow(num, 3);
+	function l1N2() {
+		var num = 33721;
+		var result;
 
-	document.write(result);
+		result = Math.pow(num, 3);
 
+		document.write(result);
+	}
 
+/*УСЛОЖНЕННОЕ ЗАДАНИЕ (НЕОБЯЗАТЕЛЬНОЕ):
 
+Необходимо выполнить в отдельном js файле, подключенному к отдельной HTML странице
+1) Создать массив week и записать в него дни недели
+·        Вывести на экран все дни недели
+·        Каждый из них с новой строчки
+·        Выходные дни - жирным шрифтом
+·        Текущий день - курсивом
+2) Создать массив arr = []
+·        Записать в него 7 многозначных чисел в виде строк
+·        Вывести в консоль только те, что начинаются с цифры 3 или 7 (Должны присутствовать в массиве)
+3) Добавить папку с усложненным заданием в свой репозиторий на GitHub*/
+
+	function l2N1() {
+		var week = ['pn', 'vt', 'sr', 'cht', 'pt', 'sub', 'vs'];
+		var date = new Date;
+		date = date.getDay();
+
+		for (var i = 0; i < week.length; i++) {
+			if (date - 1 == i) {
+				document.write('<i>' + week[i] + '</i>' + '<br>');
+			}else if (i == 5 || i == 6) {
+				document.write('<b>' + week[i] + '</b>' + '<br>');
+			}else document.write(week[i] + '<br>');
+		}
+	}
+
+	function l2N2() {
+		var arr = [];
+		var result = [];
+
+		while (result.length == 0) {
+
+			for (let i = 0; i <= 7; i++) {
+				let number = (Math.random() * 1000000).toFixed(0);
+				
+				arr[i] = (number + '');
+				let firstWord = arr[i].split('', 1);
+
+				if (firstWord == 3 || firstWord == 7) {
+					result.push(arr[i]);
+				}
+			}
+		}
+		console.log(result);
+	}
 </script>
