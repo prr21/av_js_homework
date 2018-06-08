@@ -1,39 +1,59 @@
 <script>
-/*Задание
-ОСНОВНОЕ ЗАДАНИЕ (ОБЯЗАТЕЛЬНОЕ):
-1) Создать HTML страницу и подключить к ней файл скрипта
-2) В файле скрипта создать 2 переменные, которые будут получать данные от пользователя:
-·        Первая будет спрашивать "Ваш бюджет?"
-·        Вторая "Название вашего магазина?"
-3) Создать объект mainList, который будет содержать такие данные:
-·        Бюджет
-·        Имя магазина
-·        Массив товаров shopGoods
-·        Объект с сотрудниками employers
-·        Свойство open
-4) Задать пользователю 3 раза вопрос "Какой тип товаров будем продавать?" и записать ответы в массив shopGoods
-5) Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней)
-6) Проверить на наличие ошибок
-7) Создать свой репозиторий на GitHub и поместить туда папку с первым заданием*/
+let time,
+	money,
+	name,
+	price;
+time = new Date();
+time = time.getHours();
 
-function l1N1() {
-	var money = +prompt("Ваш бюджет?", '30000');
-	var nameShop = prompt("Название вашего магазина?", 'Verblyadi');
-
-	var mainList = {
+	let mainList = {
 		budget: money,
-		nameStore: nameShop,
+		shopName: name,
 		shopGoods: [],
-		employers: {}
+		employers: {},
+		open: false,
+		discount: false,
+		shooseGoods: function shooseGoods() {
+			for (let i = 0; i < 5; i++) {
+			    let a = prompt('Какой тип товара будем продовать?', [i]);
+
+		    	if ((typeof(a)) === 'string' && (typeof(a)) != null && a != '') {
+		    		console.log('Всё верно');
+		    		mainList.shopGoods[i] = a;
+		    	} else i -= 1;
+			}
+		},
+		workTime: function workTime(time) {
+			if (time < 0) {
+				console.log('Такого быть не может!');
+			} else if (time > 8 && time < 20) {
+				console.log('Время работать');
+				mainList.open = true;
+			} else if (time < 24) {
+				console.log('Уже слишком поздно!');
+			} else console.log('В сутках только 24 часа!');
+		},
+		takeBudget: function takeBudget() {
+			alert('Ежедневный бюджет: ' + mainList.budget / 30);
+		},
+		makeDiscount: function makeDiscount() {
+			if (discount == 1) {
+				price = (price / 100) * 80;
+			}
+		},
+		hireEmployers: function makeEmployers() {
+			for (let i = 1; i <= 4; i++) {
+				mainList.employers[i] = prompt('Введите имя сотрудника', 'Сотрудник № ' + [i]);
+			}
+		} 
+			
 	}
 
-	mainList.shopGoods.push(prompt("Какой тип товаров будем продавать?", "prr1"));
-	mainList.shopGoods.push(prompt("Какой тип товаров будем продавать?", "brr2"));
-	mainList.shopGoods.push(prompt("Какой тип товаров будем продавать?", "urr3"));
+	while (isNaN(mainList.budget) || mainList.budget == '' || mainList.budget == null) {
+		mainList.budget = prompt('Ваш бюджет?', '30000');
+	}
 
-	document.write("Ваш бюджет на 1 день: " + mainList.budget / 30 + " рублей");
-}
+	mainList.shopName = prompt('Название вашего магазина?', 'verblyadi');
 
-
-
+console.log(mainList);
 </script>
