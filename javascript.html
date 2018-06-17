@@ -1,4 +1,6 @@
 <script>
+"use strict"
+
 let time,
 	money,
 	name,
@@ -11,6 +13,7 @@ time = time.getHours();
 		shopName: name,
 		shopGoods: [],
 		employers: {},
+		shopItems: [],
 		open: false,
 		discount: false,
 		shooseGoods: function shooseGoods() {
@@ -45,8 +48,26 @@ time = time.getHours();
 			for (let i = 1; i <= 4; i++) {
 				mainList.employers[i] = prompt('Введите имя сотрудника', 'Сотрудник № ' + [i]);
 			}
-		} 
-			
+		},
+		chooseShopItems: function chooseShopItems() {
+			let items;
+			while (items == '' || items == null || !isNaN(+items) || items == undefined) {
+				items = prompt('Введите через запятую товару', '');
+			}
+				mainList.shopItems = items.split(',');
+				mainList.shopItems.sort();
+
+				mainList.shopItems.forEach(function (item, i, arr) {
+					i += 1;
+					alert('У нас вы можете купить: ' + i + ') ' + item);
+				});
+		},
+		showWhatIn: function showWhatIn() {
+			for (let key in mainList) {
+				alert("Наш магазин включает в себя: " + key);
+			}			
+		}
+
 	}
 
 	while (isNaN(mainList.budget) || mainList.budget == '' || mainList.budget == null) {
