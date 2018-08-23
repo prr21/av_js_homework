@@ -76,19 +76,19 @@ setTimer('timer', deadline);
 
 let age = document.getElementById('age');
 
-function showUser(surname, name) {console.log(this)
+function showUser(surname, name) {
 	alert("Пользователь " + surname + " " + name + ", его возраст " +
 	this.value);
 };
 
-var petya = new MakeNewUser('petya', 'petrov');
+var petya = new MakeNewUser('petya', 'petrov', age);
 
 // showUser.call(petya, petya.surname,petya.name);
 
-function MakeNewUser(surname, name) {
+function MakeNewUser(surname, name, value) {
  	this.surname = surname;
  	this.name = name;
- 	this.value = age.getAttribute('value');
+ 	this.value = value.getAttribute('value');
 }
 
 
