@@ -1,3 +1,3 @@
 
-# av_js_homework
+Making some homework from GLO
 
