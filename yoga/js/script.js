@@ -127,10 +127,7 @@ class Options {
 		this.div = document.createElement('div');
 
 		this.block.appendChild(this.div);
-		console.log(this.div);
-
 		this.div.textContent = text;
-		console.log(text);
 
 		this.changeStyle();
 	};
@@ -148,5 +145,3 @@ let text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiu
 
 let prr = new Options('200px', '400px', '#e8e8e8', '26px', 'right');
 // prr.makeDiv(text);
-
-document.write(`asdasdasd ${text[0]} + "Prrr" 'text'`)
