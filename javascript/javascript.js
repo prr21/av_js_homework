@@ -1,4 +1,3 @@
-<script>
 "use strict"
 
 let timer,
@@ -77,4 +76,3 @@ time = time.getHours();
 	mainList.shopName = prompt('Название вашего магазина?', 'verblyadi');*/
 
 console.log(mainList);
-</script>
