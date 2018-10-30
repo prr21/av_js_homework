@@ -195,20 +195,64 @@ var peopleSum = document.getElementsByClassName('counter-block-input')[0],
 	peopleValue = 0,
 	dayValue = 0;
 
-	peopleSum.addEventListener('change', function() {
-		peopleValue = +this.value;
-		if(dayValue) caclPrice();
-	});
+peopleSum.addEventListener('change', function() {
+	peopleValue = +this.value;
+	if(dayValue) caclPrice();
+});
 
-	daySum.addEventListener('change', function() {
-		dayValue = +this.value;
-		if(peopleValue) caclPrice();
-	});
+daySum.addEventListener('change', function() {
+	dayValue = +this.value;
+	if(peopleValue) caclPrice();
+});
 
-	select.addEventListener('change', function() {
-		caclPrice( this.options[this.selectedIndex].value )
-	})
+select.addEventListener('change', function() {
+	caclPrice( this.options[this.selectedIndex].value )
+})
 
-	function caclPrice(place = 1) {
-		total.innerHTML = (dayValue + peopleValue) * 4000 * place;
+function caclPrice(place = 1) {
+	total.innerHTML = (dayValue + peopleValue) * 4000 * place;
+}
+
+// Slider
+var prev = document.getElementsByClassName('prev')[0],
+	next = document.getElementsByClassName('next')[0],
+	dotsWrap = document.getElementsByClassName('slider-dots')[0],
+	dots = document.getElementsByClassName('dot'),
+	sliders = document.getElementsByClassName('slider-item');
+
+prev.addEventListener('click', function() {
+	slideUp(-1)
+});
+
+next.addEventListener('click', function() {
+	slideUp(+1)
+});
+
+// dotsWrap.addEventListener('click', function(event) {
+// 	if (event.target.classList.contains('dot')) {
+
+// 		for (let i = 0; i < dots.length; i++) {
+// 			if (event.target == dots[i]) slideUp(i)
+// 			dots[i].classList.remove('dot-active')
+// 		}
+
+// 		event.target.classList.add('dot-active');
+// 	}
+// })
+
+function slideUp(index) {
+
+	for (let i = 0; i < sliders.length; i++) {
+		if(!sliders[i].classList.contains('hide')) {
+			var currSlide = i;
+
+			if (currSlide + index >= sliders.length) currSlide = 0;
+			if (currSlide + index <= 0) currSlide = sliders.length;
+
+			sliders[i].classList.add('hide');
+			sliders[currSlide + index].classList.remove('hide');
+			break
+		}
 	}
+}
+
