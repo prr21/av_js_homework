@@ -1,18 +1,21 @@
-window.addEventListener('DOMContentLoaded', function() {
-	let Ajax = requier('../parts/Ajax.js'),
-		calc = requier('../parts/calc.js'),
-		call = requier('../parts/call.js'),
-		modal = requier('../parts/modal.js'),
-		options = requier('../parts/options.js'),
-		slider = requier('../parts/slider.js'),
-		tab = requier('../parts/tab.js');
+window.onload = function() {
 
-		Ajax()
-		calc()
-		call()
-		modal()
-		modal()
-		options()
-		slider()
-		tab()
-})
+	let Ajax = require('../parts/Ajax.js'),
+		modal = require('../parts/modal.js'),
+		calc = require('../parts/calc.js'),
+		call = require('../parts/call.js'),
+		options = require('../parts/options.js'),
+		slider = require('../parts/slider.js'),
+		tab = require('../parts/tab.js'),
+		timer = require('../parts/timer.js');
+
+	Ajax();
+	modal();
+	calc();
+	call();
+	options();
+	slider();
+	tab();
+	timer();
+
+};
